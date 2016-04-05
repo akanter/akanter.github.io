@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on AKnowledge</title>
+    <link>http://www.aknowledge.com/categories/security/</link>
+    <description>Recent content in Security on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Apr 2016 16:07:17 -0700</lastBuildDate>
+    <atom:link href="http://www.aknowledge.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Password Management for the [Somewhat] Common Man</title>
+      <link>http://www.aknowledge.com/blog/keepass/</link>
+      <pubDate>Mon, 04 Apr 2016 16:07:17 -0700</pubDate>
+      
+      <guid>http://www.aknowledge.com/blog/keepass/</guid>
+      <description>
+
+&lt;h3 id=&#34;123456-password-qwerty:a63057fb289f6f92bc30abedb494f420&#34;&gt;123456, password, qwerty&lt;/h3&gt;
+
+&lt;p&gt;In the offchance you&amp;rsquo;ve been living under a rock lacking internet access for the past several years, passwords and account information are leaked on a frighteningly regular basis. &lt;a href=&#34;https://nakedsecurity.sophos.com/2015/11/25/amazon-data-breach-rumours-spread-as-passwords-are-reset-on-some-accounts/&#34;&gt;Amazon&lt;/a&gt; forced some portion of its customers to reset their passwords around Black Friday 2015. Over 30 million &lt;a href=&#34;http://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/&#34;&gt;Ashley Madison&lt;/a&gt; accounts&amp;rsquo; details were leaked last summer including a plethora of personal details in addition to passwords. Back in 2013, more than 130 million &lt;a href=&#34;http://www.troyhunt.com/2013/11/adobe-credentials-and-serious.html&#34;&gt;Adobe&lt;/a&gt; user names, emails, encrypted (but &lt;a href=&#34;https://crackstation.net/hashing-security.htm&#34;&gt;unsalted&lt;/a&gt;) passwords, and clear-text password hints (&lt;strong&gt;do not &lt;em&gt;ever&lt;/em&gt; use password hints&lt;/strong&gt;) were loosed upon the internet.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Side note&lt;/strong&gt;: While I am sorry for the damage caused by the Adobe leak, one silver lining is that someone created a series of very clever crossword puzzles based on the password hints &lt;a href=&#34;http://zed0.co.uk/crossword/&#34;&gt;here&lt;/a&gt;. I got 100% on the first puzzle!&lt;/p&gt;
+
+&lt;p&gt;While there are services such as &lt;a href=&#34;https://haveibeenpwned.com/&#34;&gt;HaveIBeenPwned&lt;/a&gt; or &lt;a href=&#34;https://breachalarm.com/&#34;&gt;BreachAlarm&lt;/a&gt; which let you know when accounts related to your email address have been publicly compromised, their importance is drastically reduced as long as you take some necessary precautions. Furthermore, the idea of submitting your email address to a third party service is &lt;a href=&#34;http://mashable.com/2014/09/12/should-you-trust-gmail-password/&#34;&gt;questionable&lt;/a&gt;. For example, the site owner could log your email address against your IP, service provider, and user-agent to be used in a later exploit. &lt;em&gt;If there is a leak, you are always better off just changing your password anyway&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-rise-of-the-password-managers:a63057fb289f6f92bc30abedb494f420&#34;&gt;The Rise of the Password Managers&lt;/h3&gt;
+
+&lt;p&gt;Now there are a lot of things we can do to help protect ourselves from these disasters, but one simple idea is to use a different strong password for every account you have. This is not a new idea, but most people I know do not take measures because they are a &lt;em&gt;pain in the ass&lt;/em&gt;. How many long sequences of characters can you remember? What about random sequences of characters? Of my friends and family, most have around 5 passwords they memorize with varying levels of security and generally remain unchanged until they are forced to do so. Many use the same password for all related services (&amp;ldquo;well it&amp;rsquo;s easier to remember which password to use if all of my banking passwords are the same!&amp;rdquo;). This really, really doesn&amp;rsquo;t fly.&lt;/p&gt;
+
+&lt;p&gt;In response to these leaks, more and more people are now thankfully using password managers such as &lt;a href=&#34;https://www.dashlane.com&#34;&gt;Dashlane&lt;/a&gt;, &lt;a href=&#34;https://laspass.com&#34;&gt;LastPass&lt;/a&gt;, and &lt;a href=&#34;https://1password.com/&#34;&gt;1Password&lt;/a&gt; with a variety of different features (&lt;a href=&#34;http://www.pcmag.com/article2/0,2817,2407168,00.asp&#34;&gt;feature comparison here&lt;/a&gt;). Most of these are paid or subscription based products, but many also come with a free tier with differing levels of hobbling. This is all well and good, but I figured there &lt;em&gt;must&lt;/em&gt; be some sort of open-source system that I could use that would provide me with the most crucial features:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;strongly encrypted&lt;/li&gt;
+&lt;li&gt;cross platform (OSX, Windows, Linux, Android, iOS, browsers)&lt;/li&gt;
+&lt;li&gt;easily distributable&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It turns out I was right, and it&amp;rsquo;s called &lt;a href=&#34;http://keepass.info/&#34;&gt;KeePass&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;kicking-ass-with-open-source-software:a63057fb289f6f92bc30abedb494f420&#34;&gt;Kicking Ass with Open Source Software&lt;/h3&gt;
+
+&lt;p&gt;KeePass is based on a very simple idea: take a database with your passwords and metadata in it, encrypt the whole thing in AES (or other cipher with plugins), and store it on your filesystem. You can even specify the number of encryption rounds to make it harder to crack! This gets us 2 out of 3 of our critical features while adding a few others. Importing and exporting are both supported with a variety of formats so there is no worry about lock-in: there isn&amp;rsquo;t a company to be worried about losing customers here! Each password can have a history of customizable length. Furthermore as long as there are still applications that support the .kdbx (or the legacy .kdb) standard you will have a password manager.  While the reference implementation is for Windows, since it is open source there are also a number of ports for other platforms.&lt;/p&gt;
+
+&lt;p&gt;The last missing piece here is distribution. Frankly, this is actually a lot better that it&amp;rsquo;s not a part of the KeePass project - file synchronization is a tricky enough problem as it is and I&amp;rsquo;d rather be able to swap out the implementations as I want. Luckily for us, there are a variety of cross-platform file distribution services to choose from. Many of the KeePass clients integrate well with &lt;a href=&#34;https://www.dropbox.com/&#34;&gt;Dropbox&lt;/a&gt;, but &lt;a href=&#34;https://onedrive.live.com/&#34;&gt;OneDrive&lt;/a&gt;, &lt;a href=&#34;https://drive.google.com&#34;&gt;Google Drive&lt;/a&gt;, &lt;a href=&#34;https://tresorit.com&#34;&gt;Tresorit&lt;/a&gt;, or any others work almost as well.&lt;/p&gt;
+
+&lt;p&gt;Here is my setup:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;File synchronization: I went with &lt;a href=&#34;https://tresorit.com&#34;&gt;Tresorit&lt;/a&gt; because it offers end-to-end encryption and file storage in Switzerland for the low, low price of free. Unfortunately their free plan only allows 3 devices to sync files and I&amp;rsquo;ve experienced some finnicky-ness in getting my files on Android to upload. This will probably be resolved in future releases though so I&amp;rsquo;m willing to stomach it for the time being (especially since my password database doesn&amp;rsquo;t change &lt;em&gt;that&lt;/em&gt; often).&lt;/li&gt;
+&lt;li&gt;Android: &lt;a href=&#34;https://keepass2android.codeplex.com/&#34;&gt;Keepass2Android&lt;/a&gt; is open source, comes with its own keyboard to enter in your credentials into forms for you (so you&amp;rsquo;re not vulnerable to clipboard-sniffing attacks), and supports fingerprint unlocking. It seems to have specific support for Dropbox, Google Drive, OneDrive, but it doesn&amp;rsquo;t have a problem retrieving files from Tresorit either. It may have direct uploading support with the other storage services, but I haven&amp;rsquo;t tried.&lt;/li&gt;
+&lt;li&gt;OSX/Linux: I could have run the reference client under &lt;a href=&#34;www.mono-project.com/Mono:OSX/&#34;&gt;Mono&lt;/a&gt;, but &lt;a href=&#34;https://www.keepassx.org/&#34;&gt;KeePassX&lt;/a&gt; has a nice interface, is actively maintained, and is cross platform.
+been &lt;em&gt;too&lt;/em&gt; irritated by manually uploading my updated database.&lt;/li&gt;
+&lt;li&gt;Windows: The &lt;a href=&#34;http://keepass.info/&#34;&gt;KeePass&lt;/a&gt; reference client seems to work well enough for me but I don&amp;rsquo;t use my Windows machine enough to investigate if there are better options for me. If that ever changes, I&amp;rsquo;ll probably check out KeePassX.&lt;/li&gt;
+&lt;li&gt;Chrome: I&amp;rsquo;m using &lt;a href=&#34;https://chrome.google.com/webstore/detail/ompiailgknfdndiefoaoiligalphfdae&#34;&gt;ChromeIPass&lt;/a&gt;, but it requires a running &lt;a href=&#34;https://github.com/pfn/keepasshttp/&#34;&gt;KeePassHttp&lt;/a&gt; instance (essentially, a webserver attached to an instance of KeePass that can securely send password data, also open source). At the moment, KeePassHttp is only supported by the original KeePass but has been &lt;a href=&#34;https://github.com/keepassx/keepassx/pull/111&#34;&gt;unofficially ported to KeePassX&lt;/a&gt; and available on OSX via the author&amp;rsquo;s personal homebrew-pfa (&lt;code&gt;brew install eugenesan/homebrew-pfa/keepassx&lt;/code&gt;). The big issue here is that we are now relying on the author to keep his branch up-to-date. =/
+Otherwise, there is &lt;a href=&#34;https://chrome.google.com/webstore/detail/ckp-keepass-integration-f/lnfepbjehgokldcaljagbmchhnaaogpc&#34;&gt;CKP&lt;/a&gt;, which is read-only and doesn&amp;rsquo;t automatically refetch your passwords from the local filesystem (though supposedly it can refetch if it&amp;rsquo;s set up with Dropbox).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I will also give a shoutout to &lt;a href=&#34;https://keeweb.info/&#34;&gt;KeeWeb&lt;/a&gt; which is a promising looking cross-platform application built on &lt;a href=&#34;http://electron.atom.io/&#34;&gt;Electron&lt;/a&gt;. It doesn&amp;rsquo;t quite have feature parity yet (though KeePassHttp is on the roadmap!), but I&amp;rsquo;m certainly very interested to see its progress over the next few months.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t use iOS or Firefox these days but if that ever changes or I receive strong recommendations from anyone I will update this post. There are also ports listed on the &lt;a href=&#34;http://keepass.info/download.html&#34;&gt;KeePass website&lt;/a&gt; for many more platforms, including Windows Phone, BlackBerry (!), PocketPC(!!), and PalmOS(!!!).&lt;/p&gt;
+
+&lt;h3 id=&#34;you-young-ns-and-your-internets:a63057fb289f6f92bc30abedb494f420&#34;&gt;You young&amp;rsquo;ns and your internets&amp;hellip;&lt;/h3&gt;
+
+&lt;p&gt;Many of my relatives use good-old-fashioned pen &amp;amp; paper to store their passwords. While this means the passwords are probably safe from most hackers and I&amp;rsquo;m not particularly worried about theft, this is a much larger risk if and when they move from one dwelling to the next and items get lost in the shuffle. As you might have guessed by the title of this post, I am confident that even the most non-technologically savvy members of my family can stomach KeePass and even without the complications of synchronizing the database across devices, it is much better than a piece of paper. If there is no cloud synchronization in your system though, I would strongly recommend some sort of file backup, even if it&amp;rsquo;s just OSX&amp;rsquo;s built-in Time Machine.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

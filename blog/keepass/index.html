@@ -1,0 +1,686 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Password Management for the [Somewhat] Common Man</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.15" />
+        
+
+
+        
+            <meta name="author" content="Aaron Kanter">
+        
+        
+            <meta name="description" content="Thoughts about the seemingly only option for free, cross-platform password management">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Password Management for the [Somewhat] Common Man"/>
+<meta name="twitter:description" content="Thoughts about the seemingly only option for free, cross-platform password management"/>
+
+
+
+        <meta property="og:title" content="Password Management for the [Somewhat] Common Man" />
+<meta property="og:description" content="Thoughts about the seemingly only option for free, cross-platform password management" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.aknowledge.com/blog/keepass/" />
+
+
+<meta property="og:updated_time" content="2016-04-04T16:07:17-07:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Password Management for the [Somewhat] Common Man">
+<meta itemprop="description" content="Thoughts about the seemingly only option for free, cross-platform password management">
+
+
+<meta itemprop="dateModified" content="2016-04-04T16:07:17-07:00" />
+<meta itemprop="wordCount" content="1255">
+
+
+
+<meta itemprop="keywords" content="security,tech,passwords," />
+
+        
+
+        
+        
+
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/">AKnowledge</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/blog/">
+                        
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                        Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                        About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://www.aknowledge.com/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://www.aknowledge.com/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/blog/">
+                            <h3>
+                                
+                                    <i class="fa fa-newspaper-o">&nbsp;</i>
+                                
+                                Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                
+                                About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://www.aknowledge.com/blog/keepass/"><p>Password Management for the [Somewhat] Common Man</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&text=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Aaron%20Kanter&body=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://www.aknowledge.com/blog/keepass/">Password Management for the [Somewhat] Common Man</a></h1>
+            
+        
+        
+            <p>Thoughts about the seemingly only option for free, cross-platform password management</p>
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-04-04'>
+            April 4, 2016</time>
+        <span class="author">Aaron Kanter</span>
+        
+            <p>6 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&text=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f&title=Password%20Management%20for%20the%20%5bSomewhat%5d%20Common%20Man" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Aaron%20Kanter&body=http%3a%2f%2fwww.aknowledge.com%2fblog%2fkeepass%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    
+
+<h3 id="123456-password-qwerty:a63057fb289f6f92bc30abedb494f420">123456, password, qwerty</h3>
+
+<p>In the offchance you&rsquo;ve been living under a rock lacking internet access for the past several years, passwords and account information are leaked on a frighteningly regular basis. <a href="https://nakedsecurity.sophos.com/2015/11/25/amazon-data-breach-rumours-spread-as-passwords-are-reset-on-some-accounts/">Amazon</a> forced some portion of its customers to reset their passwords around Black Friday 2015. Over 30 million <a href="http://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/">Ashley Madison</a> accounts&rsquo; details were leaked last summer including a plethora of personal details in addition to passwords. Back in 2013, more than 130 million <a href="http://www.troyhunt.com/2013/11/adobe-credentials-and-serious.html">Adobe</a> user names, emails, encrypted (but <a href="https://crackstation.net/hashing-security.htm">unsalted</a>) passwords, and clear-text password hints (<strong>do not <em>ever</em> use password hints</strong>) were loosed upon the internet.</p>
+
+<p><strong>Side note</strong>: While I am sorry for the damage caused by the Adobe leak, one silver lining is that someone created a series of very clever crossword puzzles based on the password hints <a href="http://zed0.co.uk/crossword/">here</a>. I got 100% on the first puzzle!</p>
+
+<p>While there are services such as <a href="https://haveibeenpwned.com/">HaveIBeenPwned</a> or <a href="https://breachalarm.com/">BreachAlarm</a> which let you know when accounts related to your email address have been publicly compromised, their importance is drastically reduced as long as you take some necessary precautions. Furthermore, the idea of submitting your email address to a third party service is <a href="http://mashable.com/2014/09/12/should-you-trust-gmail-password/">questionable</a>. For example, the site owner could log your email address against your IP, service provider, and user-agent to be used in a later exploit. <em>If there is a leak, you are always better off just changing your password anyway</em>.</p>
+
+<h3 id="the-rise-of-the-password-managers:a63057fb289f6f92bc30abedb494f420">The Rise of the Password Managers</h3>
+
+<p>Now there are a lot of things we can do to help protect ourselves from these disasters, but one simple idea is to use a different strong password for every account you have. This is not a new idea, but most people I know do not take measures because they are a <em>pain in the ass</em>. How many long sequences of characters can you remember? What about random sequences of characters? Of my friends and family, most have around 5 passwords they memorize with varying levels of security and generally remain unchanged until they are forced to do so. Many use the same password for all related services (&ldquo;well it&rsquo;s easier to remember which password to use if all of my banking passwords are the same!&rdquo;). This really, really doesn&rsquo;t fly.</p>
+
+<p>In response to these leaks, more and more people are now thankfully using password managers such as <a href="https://www.dashlane.com">Dashlane</a>, <a href="https://laspass.com">LastPass</a>, and <a href="https://1password.com/">1Password</a> with a variety of different features (<a href="http://www.pcmag.com/article2/0,2817,2407168,00.asp">feature comparison here</a>). Most of these are paid or subscription based products, but many also come with a free tier with differing levels of hobbling. This is all well and good, but I figured there <em>must</em> be some sort of open-source system that I could use that would provide me with the most crucial features:</p>
+
+<ol>
+<li>strongly encrypted</li>
+<li>cross platform (OSX, Windows, Linux, Android, iOS, browsers)</li>
+<li>easily distributable</li>
+</ol>
+
+<p>It turns out I was right, and it&rsquo;s called <a href="http://keepass.info/">KeePass</a>.</p>
+
+<h3 id="kicking-ass-with-open-source-software:a63057fb289f6f92bc30abedb494f420">Kicking Ass with Open Source Software</h3>
+
+<p>KeePass is based on a very simple idea: take a database with your passwords and metadata in it, encrypt the whole thing in AES (or other cipher with plugins), and store it on your filesystem. You can even specify the number of encryption rounds to make it harder to crack! This gets us 2 out of 3 of our critical features while adding a few others. Importing and exporting are both supported with a variety of formats so there is no worry about lock-in: there isn&rsquo;t a company to be worried about losing customers here! Each password can have a history of customizable length. Furthermore as long as there are still applications that support the .kdbx (or the legacy .kdb) standard you will have a password manager.  While the reference implementation is for Windows, since it is open source there are also a number of ports for other platforms.</p>
+
+<p>The last missing piece here is distribution. Frankly, this is actually a lot better that it&rsquo;s not a part of the KeePass project - file synchronization is a tricky enough problem as it is and I&rsquo;d rather be able to swap out the implementations as I want. Luckily for us, there are a variety of cross-platform file distribution services to choose from. Many of the KeePass clients integrate well with <a href="https://www.dropbox.com/">Dropbox</a>, but <a href="https://onedrive.live.com/">OneDrive</a>, <a href="https://drive.google.com">Google Drive</a>, <a href="https://tresorit.com">Tresorit</a>, or any others work almost as well.</p>
+
+<p>Here is my setup:</p>
+
+<ul>
+<li>File synchronization: I went with <a href="https://tresorit.com">Tresorit</a> because it offers end-to-end encryption and file storage in Switzerland for the low, low price of free. Unfortunately their free plan only allows 3 devices to sync files and I&rsquo;ve experienced some finnicky-ness in getting my files on Android to upload. This will probably be resolved in future releases though so I&rsquo;m willing to stomach it for the time being (especially since my password database doesn&rsquo;t change <em>that</em> often).</li>
+<li>Android: <a href="https://keepass2android.codeplex.com/">Keepass2Android</a> is open source, comes with its own keyboard to enter in your credentials into forms for you (so you&rsquo;re not vulnerable to clipboard-sniffing attacks), and supports fingerprint unlocking. It seems to have specific support for Dropbox, Google Drive, OneDrive, but it doesn&rsquo;t have a problem retrieving files from Tresorit either. It may have direct uploading support with the other storage services, but I haven&rsquo;t tried.</li>
+<li>OSX/Linux: I could have run the reference client under <a href="www.mono-project.com/Mono:OSX/">Mono</a>, but <a href="https://www.keepassx.org/">KeePassX</a> has a nice interface, is actively maintained, and is cross platform.
+been <em>too</em> irritated by manually uploading my updated database.</li>
+<li>Windows: The <a href="http://keepass.info/">KeePass</a> reference client seems to work well enough for me but I don&rsquo;t use my Windows machine enough to investigate if there are better options for me. If that ever changes, I&rsquo;ll probably check out KeePassX.</li>
+<li>Chrome: I&rsquo;m using <a href="https://chrome.google.com/webstore/detail/ompiailgknfdndiefoaoiligalphfdae">ChromeIPass</a>, but it requires a running <a href="https://github.com/pfn/keepasshttp/">KeePassHttp</a> instance (essentially, a webserver attached to an instance of KeePass that can securely send password data, also open source). At the moment, KeePassHttp is only supported by the original KeePass but has been <a href="https://github.com/keepassx/keepassx/pull/111">unofficially ported to KeePassX</a> and available on OSX via the author&rsquo;s personal homebrew-pfa (<code>brew install eugenesan/homebrew-pfa/keepassx</code>). The big issue here is that we are now relying on the author to keep his branch up-to-date. =/
+Otherwise, there is <a href="https://chrome.google.com/webstore/detail/ckp-keepass-integration-f/lnfepbjehgokldcaljagbmchhnaaogpc">CKP</a>, which is read-only and doesn&rsquo;t automatically refetch your passwords from the local filesystem (though supposedly it can refetch if it&rsquo;s set up with Dropbox).</li>
+</ul>
+
+<p>I will also give a shoutout to <a href="https://keeweb.info/">KeeWeb</a> which is a promising looking cross-platform application built on <a href="http://electron.atom.io/">Electron</a>. It doesn&rsquo;t quite have feature parity yet (though KeePassHttp is on the roadmap!), but I&rsquo;m certainly very interested to see its progress over the next few months.</p>
+
+<p>I don&rsquo;t use iOS or Firefox these days but if that ever changes or I receive strong recommendations from anyone I will update this post. There are also ports listed on the <a href="http://keepass.info/download.html">KeePass website</a> for many more platforms, including Windows Phone, BlackBerry (!), PocketPC(!!), and PalmOS(!!!).</p>
+
+<h3 id="you-young-ns-and-your-internets:a63057fb289f6f92bc30abedb494f420">You young&rsquo;ns and your internets&hellip;</h3>
+
+<p>Many of my relatives use good-old-fashioned pen &amp; paper to store their passwords. While this means the passwords are probably safe from most hackers and I&rsquo;m not particularly worried about theft, this is a much larger risk if and when they move from one dwelling to the next and items get lost in the shuffle. As you might have guessed by the title of this post, I am confident that even the most non-technologically savvy members of my family can stomach KeePass and even without the complications of synchronizing the database across devices, it is much better than a piece of paper. If there is no cloud synchronization in your system though, I would strongly recommend some sort of file backup, even if it&rsquo;s just OSX&rsquo;s built-in Time Machine.</p>
+
+
+    <footer>
+        <ul class="stats">
+    
+
+    
+        
+            <li>
+                
+        
+
+                
+                    Categories
+                
+            </li>
+    
+
+    
+        <li><a href="/categories/tech">tech</a></li>
+    
+        <li><a href="/categories/security">security</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+
+    
+</ul>
+
+
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+                
+                    <a href="/" class="logo"><img src="/img/main/logo.jpg" alt="AK" /></a>
+                
+            
+            
+                <header>
+                    <h2>AKnowledge</h2>
+                    <p>A dumping ground for all things technology, travel, music, and more.</p>
+                </header>
+            
+            
+                <ul class="icons">
+                    
+<li><a href="//github.com/akanter" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/aaron-kanter-a5b04837" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//plus.google.com/+alkanter" target="_blank" title="Google+" class="fa fa-google-plus"></a></li>
+
+
+
+<li><a href="//facebook.com/akanter" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+                </ul>
+            
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://www.aknowledge.com/blog/keepass/">Password Management for the [Somewhat] Common Man</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2016-04-04'>
+                                    April 4, 2016</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/tech/">tech</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/security/">security</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+        <section class="blurb">
+            <h2>About</h2>
+            <p>Aaron Kanter is a generalist developer, musician, and traveler based out of San Francisco</p>
+
+            <ul class="actions">
+                <li><a href="/about/" class="button">Learn More</a></li>
+            </ul>
+        </section>
+        
+
+    
+        <section id="footer">
+            
+                <ul class="icons">
+                    
+<li><a href="//github.com/akanter" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/aaron-kanter-a5b04837" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//plus.google.com/+alkanter" target="_blank" title="Google+" class="fa fa-google-plus"></a></li>
+
+
+
+<li><a href="//facebook.com/akanter" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+                </ul>
+            
+
+            <p class="copyright">&copy; AKnowledge. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+        
+
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+
