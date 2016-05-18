@@ -6,8 +6,168 @@
     <description>Recent content on AKnowledge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2016 16:07:17 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 18 May 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://aknowledge.xyz/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Giddyup: First Look at Pony Lang</title>
+      <link>http://aknowledge.xyz/blog/pony-impressions/</link>
+      <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/pony-impressions/</guid>
+      <description>
+
+&lt;p&gt;A friend of mine jokingly brought up the &lt;a href=&#34;ponylang&#34;&gt;Pony&lt;/a&gt; language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended &lt;a href=&#34;http://www.babscon.com/&#34;&gt;BABSCon&lt;/a&gt;, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard &lt;a href=&#34;http://www.urbandictionary.com/define.php?term=Brony&#34;&gt;bronies&lt;/a&gt;? Is this a legitimate language or just horsing around? As it turns out, this is a &lt;strong&gt;well thought out&lt;/strong&gt; language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&amp;rsquo;m going to take the rest of the post to give my $0.02 based on what I&amp;rsquo;ve read so far (the &lt;a href=&#34;ponytut&#34;&gt;Pony tutorial&lt;/a&gt; followed by a couple of &lt;a href=&#34;post1&#34;&gt;blog&lt;/a&gt; &lt;a href=&#34;post2&#34;&gt;posts&lt;/a&gt; by Bluish Coder/Chris Double) and what I&amp;rsquo;ve tinkered with.&lt;/p&gt;
+
+&lt;h3 id=&#34;overview:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Overview&lt;/h3&gt;
+
+&lt;p&gt;What do I mean by a &amp;ldquo;well thought out language&amp;rdquo;? &lt;a href=&#34;ponylang&#34;&gt;PonyLang&lt;/a&gt;, from its inception, was designed to emphasize (in order of importance)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;correctness&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;performance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;simplicity&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;consistency&lt;/li&gt;
+&lt;li&gt;completeness&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Almost everything that I&amp;rsquo;ve read so far about Pony has pointed back to these principles (together called the &amp;ldquo;get-stuff-done&amp;rdquo; approach) and used this ordering to determine how to proceed on an issue. How should race conditions be handled? Well, a race condition is a form of &amp;ldquo;incorrectness&amp;rdquo; so eliminating them entirely became part of the plan. Ahead of time compilation? That should help with correctness and performance at the expense portability and scripting capabilities among others (neither of which you&amp;rsquo;ll note are on the list).&lt;/p&gt;
+
+&lt;p&gt;What else can be said about the language? It&amp;rsquo;s object-oriented, &lt;a href=&#34;actor-model-wiki&#34;&gt;actor-model&lt;/a&gt; (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few &lt;a href=&#34;papers&#34;&gt;academic papers&lt;/a&gt; written about it, with more coming I&amp;rsquo;d imagine.&lt;/p&gt;
+
+
+&lt;figure class=&#34;align-center&#34;&gt;
+    
+        &lt;img src=&#34;http://aknowledge.xyz/img/posts/ponylang_mascot.jpeg&#34; alt=&#34;The brand new (May 13, 2016) mascot. His name is Main.&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        The brand new (May 13, 2016) mascot. His name is Main.
+        &lt;a href=&#34;https://twitter.com/SeanTAllen/status/731129619143925760&#34;&gt; 
+            @ponylang
+        &lt;/a&gt; 
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;pony-is-a-natural-stupidity-repellant:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Pony is a natural stupidity repellant&lt;/h3&gt;
+
+&lt;p&gt;You&amp;rsquo;ll notice I emphasized &amp;ldquo;correctness&amp;rdquo; and &amp;ldquo;simplicity&amp;rdquo;. I did this because of all of these guiding principles, these two are clearly the conceptual parents of another less specified, but wonderfully pervasive, doctrine: &amp;ldquo;save developers from shooting themselves in the foot&amp;rdquo;. I&amp;rsquo;ll call any characteristics born of this concept &amp;ldquo;DevSafe&amp;rdquo;.&lt;/p&gt;
+
+&lt;h4 id=&#34;no-null:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;No Null&lt;/h4&gt;
+
+&lt;p&gt;Yeah, they got rid of Tony Hoare&amp;rsquo;s famed &lt;a href=&#34;hoare-quote&#34;&gt;billion dollar mistake&lt;/a&gt; called &amp;ldquo;null&amp;rdquo;. Don&amp;rsquo;t worry, there is still the primitive type &lt;code&gt;None&lt;/code&gt;, but you&amp;rsquo;ll never see it when you&amp;rsquo;re not expecting it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x: String // x will only ever be a String. If there is a part of the code that could potentially assign x to be None, the compiler will spit out an error
+
+var y: (String | None) // y can be a String OR None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h4 id=&#34;no-global-variables:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;No global variables&lt;/h4&gt;
+
+&lt;p&gt;Remember that &lt;a href=&#34;http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code&#34;&gt;fatal acceleration bug&lt;/a&gt; Toyota had a couple of years ago? Well apparently they had 10,000 global variables meaning potentially 10,000 different ways for any part of the code to manipulate the rest of the system referencing those variables. Yuck.&lt;/p&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h4 id=&#34;no-variable-shadowing:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;No variable shadowing&lt;/h4&gt;
+
+&lt;p&gt;If you want to reuse a variable name, just stick a &lt;code&gt;&#39;&lt;/code&gt; (prime, from mathematics) on it. I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been bitten by this in one way or another&amp;hellip;Javascript would suck at least 5% less if this were true.&lt;/p&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h4 id=&#34;forced-parens-for-operator-precedence:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Forced parens for operator precedence&lt;/h4&gt;
+
+&lt;p&gt;I know people who have issues with this with simple arithmetic (c&amp;rsquo;mon guys, &lt;strong&gt;p&lt;/strong&gt;lease &lt;strong&gt;e&lt;/strong&gt;xcuse &lt;strong&gt;m&lt;/strong&gt;y &lt;strong&gt;d&lt;/strong&gt;ear &lt;strong&gt;A&lt;/strong&gt;unt &lt;strong&gt;S&lt;/strong&gt;ally), so the idea of people remembering operator precedence for more than &lt;em&gt;40&lt;/em&gt; in Java is patently absurd. If you mix your operators in an expression, the compiler will complain if you don&amp;rsquo;t use parens.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x = 1 + 2 + 3 // OK!
+var y = 1 * 2 + 3 // NOPE! Compiler error.
+var z = (1 * 2) + 3 // That&#39;ll work.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h4 id=&#34;forced-semicolons-for-same-line-expressions:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Forced semicolons for same-line expressions&lt;/h4&gt;
+
+&lt;p&gt;Similar to the point above, the compiler obviously knows when statements have ended just as it knows the internal operator precedences. The problem is that developers are easily confused.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x = 1 let y = 2 // NOPE!
+var x = 1; let y = 2 //OK!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h4 id=&#34;all-exceptions-must-by-handled-far-fewer-crashes:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;All exceptions must by handled -&amp;gt; far fewer crashes&lt;/h4&gt;
+
+&lt;p&gt;The compiler checks that all exceptions are handled. That means if you have something built and running you know it won&amp;rsquo;t ever throw a weird runtime exception and fall over. Obviously, you can still get yourself into problems (e.g., endless loops may not crash but they can still be bad, memory leaks can still exist). Also it&amp;rsquo;s worth noting that if you call C code, you lose this guarantee (among many others).&lt;/p&gt;
+
+&lt;p&gt;DevSafe!&lt;/p&gt;
+
+&lt;h3 id=&#34;other-interesting-bits:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Other interesting bits&lt;/h3&gt;
+
+&lt;h4 id=&#34;capabilities:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Capabilities&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tutorial.ponylang.org/capabilities/index.html&#34;&gt;Capability calculus&lt;/a&gt; is really, really sweet. It is unlike anything I&amp;rsquo;ve ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, &lt;strong&gt;this is all checked at compile time&lt;/strong&gt;, so you&amp;rsquo;ll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It&amp;rsquo;s fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I&amp;rsquo;m looking at you) 2) the compiler-time checking creates a short feedback loops to help you learn the system and ensures you&amp;rsquo;re using them properly.&lt;/p&gt;
+
+&lt;h4 id=&#34;runtime-type-information:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Runtime Type Information&lt;/h4&gt;
+
+&lt;p&gt;In many languages, runtime type information can be expensive or impossible to retrieve (e.g., Java has type erasure) and so it is generally avoided whenever possible. Not so in Pony! Type information is available at runtime and doing such a comparison at runtime is &amp;ldquo;generally just a pointer comparison&amp;rdquo; (their words, not mine - I haven&amp;rsquo;t tested it to look at the LLVM code). This means you can actually have &lt;code&gt;match&lt;/code&gt; statements (called &lt;code&gt;switch&lt;/code&gt; in many other languages) based on the type of the variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fun interestingFunction(unionVar: (U32 | CustomType | None)): String =&amp;gt;
+  match unionVar
+  | None =&amp;gt; &amp;quot;none&amp;quot;
+  | let ct : CustomType =&amp;gt; &amp;quot;CustomType&amp;quot;
+  | let u : U32 =&amp;gt; &amp;quot;u32&amp;quot;
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether &lt;code&gt;x is None&lt;/code&gt;). I&amp;rsquo;m guessing this will change in a future release, but as of right now it&amp;rsquo;s sitting in the &lt;a href=&#34;https://github.com/ponylang/ponyc/issues/87&#34;&gt;issue backlog&lt;/a&gt;.
+- Everything in the language is an expression. The result of an &lt;code&gt;if&lt;/code&gt; (and most control structures for that matter) block is the last expression within the block or &lt;code&gt;None&lt;/code&gt; if it doesn&amp;rsquo;t execute. The result of a &lt;code&gt;break&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt; unless it is followed by an expression. You get the idea.&lt;/p&gt;
+
+&lt;h4 id=&#34;destructo-read:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Destructo-Read&lt;/h4&gt;
+
+&lt;p&gt;Pony has destructive reads. This means that you can move variables around without needing a &amp;ldquo;3rd hand&amp;rdquo; like you normally would in most other languages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x : (String | U32) = &amp;quot;foo&amp;quot;
+var y : (String | U32) = 1337
+y = x = &amp;quot;bar&amp;quot;
+y // &amp;quot;foo&amp;quot;
+x // &amp;quot;bar&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This works because the value of the expression &lt;code&gt;x = &amp;quot;bar&amp;quot;&lt;/code&gt; is &lt;code&gt;x&lt;/code&gt;&amp;rsquo;s previous value, which we know to be &lt;code&gt;&amp;quot;foo&amp;quot;&lt;/code&gt;. Taking it one step further&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;x = y = x
+x // &amp;quot;foo&amp;quot;
+y // &amp;quot;bar&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Neat! It also seems like it won&amp;rsquo;t even negatively affect readability too much since only the right-most assignment can have real logic in it. Though, if people get too trigger-happy assigning variables mid-expression it may cause some comprehension problems.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var x : &amp;quot;bazz&amp;quot;
+if (x = &amp;quot;foo&amp;quot;) == &amp;quot;bazz&amp;quot; then
+  env.out.print(&amp;quot;that&#39;s not how Java works&#39;&amp;quot;) // Yep, that prints.
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;the-whole-0-02:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;The whole $0.02&lt;/h3&gt;
+
+&lt;p&gt;Pony looks to be a serious contender to help &amp;ldquo;solve&amp;rdquo; concurrent programming. I probably would not recommend it to a beginning programmer right now since the tutorial and other resources are not super robust, but given the developer-friendly features and the very enthusiastic (though rather small) community I think it is absolutely worthwhile for more experienced developers to experiment with.&lt;/p&gt;
+
+&lt;h3 id=&#34;further-information:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Further information&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Web: &lt;a href=&#34;https://www.ponylang.org/&#34;&gt;https://www.ponylang.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;IRC: #ponylang @ irc.freenode.org&lt;/li&gt;
+&lt;li&gt;Groups: &lt;a href=&#34;https://pony.groups.io/g/pony&#34;&gt;https://pony.groups.io/g/pony&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/ponylang&#34;&gt;https://github.com/ponylang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Password Management for the [Somewhat] Common Man</title>
