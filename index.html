@@ -283,11 +283,11 @@ ga('send', 'pageview');
 
     
 
-<p>A friend of mine jokingly brought up the <a href="ponylang">Pony</a> language in the context that he&rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended <a href="http://www.babscon.com/">BABSCon</a>, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard <a href="http://www.urbandictionary.com/define.php?term=Brony">bronies</a>? Is this a legitimate language or just horsing around? As it turns out, this is a <strong>well thought out</strong> language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&rsquo;m going to take the rest of the post to give my $0.02 based on what I&rsquo;ve read so far (the <a href="ponytut">Pony tutorial</a> followed by a couple of <a href="post1">blog</a> <a href="post2">posts</a> by Bluish Coder/Chris Double) and what I&rsquo;ve tinkered with.</p>
+<p>A friend of mine jokingly brought up the <a href="http://www.ponylang.org/">Pony</a> language in the context that he&rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended <a href="http://www.babscon.com/">BABSCon</a>, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard <a href="http://www.urbandictionary.com/define.php?term=Brony">bronies</a>? Is this a legitimate language or just horsing around? As it turns out, this is a <strong>well thought out</strong> language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&rsquo;m going to take the rest of the post to give my $0.02 based on what I&rsquo;ve read so far (the <a href="http://http://tutorial.ponylang.org/">Pony tutorial</a> followed by a couple of <a href="https://bluishcoder.co.nz/2015/11/04/a-quick-look-at-pony.html">blog</a> <a href="https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html">posts</a> by Bluish Coder/Chris Double) and what I&rsquo;ve tinkered with.</p>
 
 <h3 id="overview:1a34a3712212748d48ae30ed3811b4a0">Overview</h3>
 
-<p>What do I mean by a &ldquo;well thought out language&rdquo;? <a href="ponylang">PonyLang</a>, from its inception, was designed to emphasize (in order of importance)</p>
+<p>What do I mean by a &ldquo;well thought out language&rdquo;? <a href="http://www.ponylang.org/">PonyLang</a>, from its inception, was designed to emphasize (in order of importance)</p>
 
 <ul>
 <li><strong>correctness</strong></li>
@@ -299,7 +299,7 @@ ga('send', 'pageview');
 
 <p>Almost everything that I&rsquo;ve read so far about Pony has pointed back to these principles (together called the &ldquo;get-stuff-done&rdquo; approach) and used this ordering to determine how to proceed on an issue. How should race conditions be handled? Well, a race condition is a form of &ldquo;incorrectness&rdquo; so eliminating them entirely became part of the plan. Ahead of time compilation? That should help with correctness and performance at the expense portability and scripting capabilities among others (neither of which you&rsquo;ll note are on the list).</p>
 
-<p>What else can be said about the language? It&rsquo;s object-oriented, <a href="actor-model-wiki">actor-model</a> (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few <a href="papers">academic papers</a> written about it, with more coming I&rsquo;d imagine.</p>
+<p>What else can be said about the language? It&rsquo;s object-oriented, <a href="https://en.wikipedia.org/wiki/Actor_model/">actor-model</a> (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few <a href="https://github.com/ponylang/ponylang.github.io/tree/master/papers/">academic papers</a> written about it, with more coming I&rsquo;d imagine.</p>
 
 
 <figure class="align-center">
@@ -325,7 +325,7 @@ ga('send', 'pageview');
 
 <h4 id="no-null:1a34a3712212748d48ae30ed3811b4a0">No Null</h4>
 
-<p>Yeah, they got rid of Tony Hoare&rsquo;s famed <a href="hoare-quote">billion dollar mistake</a> called &ldquo;null&rdquo;. Don&rsquo;t worry, there is still the primitive type <code>None</code>, but you&rsquo;ll never see it when you&rsquo;re not expecting it.</p>
+<p>Yeah, they got rid of Tony Hoare&rsquo;s famed [billion dollar mistake][hoare-quote] called &ldquo;null&rdquo;. Don&rsquo;t worry, there is still the primitive type <code>None</code>, but you&rsquo;ll never see it when you&rsquo;re not expecting it.</p>
 
 <pre><code>var x: String // x will only ever be a String. If there is a part of the code that could potentially assign x to be None, the compiler will spit out an error
 
@@ -391,7 +391,7 @@ var x = 1; let y = 2 //OK!
   end
 </code></pre>
 
-<p>It&rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether <code>x is None</code>). I&rsquo;m guessing this will change in a future release, but as of right now it&rsquo;s sitting in the <a href="https://github.com/ponylang/ponyc/issues/87">issue backlog</a>.
+<p>It&rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether <code>x is None</code>). I&rsquo;m guessing this will change in a future release, but as of right now it&rsquo;s sitting in the [issue backlog][<a href="https://github.com/ponylang/ponyc/issues/87">https://github.com/ponylang/ponyc/issues/87</a>].
 - Everything in the language is an expression. The result of an <code>if</code> (and most control structures for that matter) block is the last expression within the block or <code>None</code> if it doesn&rsquo;t execute. The result of a <code>break</code> is <code>None</code> unless it is followed by an expression. You get the idea.</p>
 
 <h4 id="destructo-read:1a34a3712212748d48ae30ed3811b4a0">Destructo-Read</h4>

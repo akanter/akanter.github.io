@@ -17,11 +17,11 @@
       <guid>http://aknowledge.xyz/blog/pony-impressions/</guid>
       <description>
 
-&lt;p&gt;A friend of mine jokingly brought up the &lt;a href=&#34;ponylang&#34;&gt;Pony&lt;/a&gt; language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended &lt;a href=&#34;http://www.babscon.com/&#34;&gt;BABSCon&lt;/a&gt;, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard &lt;a href=&#34;http://www.urbandictionary.com/define.php?term=Brony&#34;&gt;bronies&lt;/a&gt;? Is this a legitimate language or just horsing around? As it turns out, this is a &lt;strong&gt;well thought out&lt;/strong&gt; language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&amp;rsquo;m going to take the rest of the post to give my $0.02 based on what I&amp;rsquo;ve read so far (the &lt;a href=&#34;ponytut&#34;&gt;Pony tutorial&lt;/a&gt; followed by a couple of &lt;a href=&#34;post1&#34;&gt;blog&lt;/a&gt; &lt;a href=&#34;post2&#34;&gt;posts&lt;/a&gt; by Bluish Coder/Chris Double) and what I&amp;rsquo;ve tinkered with.&lt;/p&gt;
+&lt;p&gt;A friend of mine jokingly brought up the &lt;a href=&#34;http://www.ponylang.org/&#34;&gt;Pony&lt;/a&gt; language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended &lt;a href=&#34;http://www.babscon.com/&#34;&gt;BABSCon&lt;/a&gt;, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard &lt;a href=&#34;http://www.urbandictionary.com/define.php?term=Brony&#34;&gt;bronies&lt;/a&gt;? Is this a legitimate language or just horsing around? As it turns out, this is a &lt;strong&gt;well thought out&lt;/strong&gt; language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&amp;rsquo;m going to take the rest of the post to give my $0.02 based on what I&amp;rsquo;ve read so far (the &lt;a href=&#34;http://http://tutorial.ponylang.org/&#34;&gt;Pony tutorial&lt;/a&gt; followed by a couple of &lt;a href=&#34;https://bluishcoder.co.nz/2015/11/04/a-quick-look-at-pony.html&#34;&gt;blog&lt;/a&gt; &lt;a href=&#34;https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html&#34;&gt;posts&lt;/a&gt; by Bluish Coder/Chris Double) and what I&amp;rsquo;ve tinkered with.&lt;/p&gt;
 
 &lt;h3 id=&#34;overview:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Overview&lt;/h3&gt;
 
-&lt;p&gt;What do I mean by a &amp;ldquo;well thought out language&amp;rdquo;? &lt;a href=&#34;ponylang&#34;&gt;PonyLang&lt;/a&gt;, from its inception, was designed to emphasize (in order of importance)&lt;/p&gt;
+&lt;p&gt;What do I mean by a &amp;ldquo;well thought out language&amp;rdquo;? &lt;a href=&#34;http://www.ponylang.org/&#34;&gt;PonyLang&lt;/a&gt;, from its inception, was designed to emphasize (in order of importance)&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;correctness&lt;/strong&gt;&lt;/li&gt;
@@ -33,7 +33,7 @@
 
 &lt;p&gt;Almost everything that I&amp;rsquo;ve read so far about Pony has pointed back to these principles (together called the &amp;ldquo;get-stuff-done&amp;rdquo; approach) and used this ordering to determine how to proceed on an issue. How should race conditions be handled? Well, a race condition is a form of &amp;ldquo;incorrectness&amp;rdquo; so eliminating them entirely became part of the plan. Ahead of time compilation? That should help with correctness and performance at the expense portability and scripting capabilities among others (neither of which you&amp;rsquo;ll note are on the list).&lt;/p&gt;
 
-&lt;p&gt;What else can be said about the language? It&amp;rsquo;s object-oriented, &lt;a href=&#34;actor-model-wiki&#34;&gt;actor-model&lt;/a&gt; (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few &lt;a href=&#34;papers&#34;&gt;academic papers&lt;/a&gt; written about it, with more coming I&amp;rsquo;d imagine.&lt;/p&gt;
+&lt;p&gt;What else can be said about the language? It&amp;rsquo;s object-oriented, &lt;a href=&#34;https://en.wikipedia.org/wiki/Actor_model/&#34;&gt;actor-model&lt;/a&gt; (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few &lt;a href=&#34;https://github.com/ponylang/ponylang.github.io/tree/master/papers/&#34;&gt;academic papers&lt;/a&gt; written about it, with more coming I&amp;rsquo;d imagine.&lt;/p&gt;
 
 
 &lt;figure class=&#34;align-center&#34;&gt;
@@ -59,7 +59,7 @@
 
 &lt;h4 id=&#34;no-null:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;No Null&lt;/h4&gt;
 
-&lt;p&gt;Yeah, they got rid of Tony Hoare&amp;rsquo;s famed &lt;a href=&#34;hoare-quote&#34;&gt;billion dollar mistake&lt;/a&gt; called &amp;ldquo;null&amp;rdquo;. Don&amp;rsquo;t worry, there is still the primitive type &lt;code&gt;None&lt;/code&gt;, but you&amp;rsquo;ll never see it when you&amp;rsquo;re not expecting it.&lt;/p&gt;
+&lt;p&gt;Yeah, they got rid of Tony Hoare&amp;rsquo;s famed [billion dollar mistake][hoare-quote] called &amp;ldquo;null&amp;rdquo;. Don&amp;rsquo;t worry, there is still the primitive type &lt;code&gt;None&lt;/code&gt;, but you&amp;rsquo;ll never see it when you&amp;rsquo;re not expecting it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var x: String // x will only ever be a String. If there is a part of the code that could potentially assign x to be None, the compiler will spit out an error
 
@@ -125,7 +125,7 @@ var x = 1; let y = 2 //OK!
   end
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It&amp;rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether &lt;code&gt;x is None&lt;/code&gt;). I&amp;rsquo;m guessing this will change in a future release, but as of right now it&amp;rsquo;s sitting in the &lt;a href=&#34;https://github.com/ponylang/ponyc/issues/87&#34;&gt;issue backlog&lt;/a&gt;.
+&lt;p&gt;It&amp;rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether &lt;code&gt;x is None&lt;/code&gt;). I&amp;rsquo;m guessing this will change in a future release, but as of right now it&amp;rsquo;s sitting in the [issue backlog][&lt;a href=&#34;https://github.com/ponylang/ponyc/issues/87&#34;&gt;https://github.com/ponylang/ponyc/issues/87&lt;/a&gt;].
 - Everything in the language is an expression. The result of an &lt;code&gt;if&lt;/code&gt; (and most control structures for that matter) block is the last expression within the block or &lt;code&gt;None&lt;/code&gt; if it doesn&amp;rsquo;t execute. The result of a &lt;code&gt;break&lt;/code&gt; is &lt;code&gt;None&lt;/code&gt; unless it is followed by an expression. You get the idea.&lt;/p&gt;
 
 &lt;h4 id=&#34;destructo-read:1a34a3712212748d48ae30ed3811b4a0&#34;&gt;Destructo-Read&lt;/h4&gt;
