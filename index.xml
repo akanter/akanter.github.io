@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AKnowledge</title>
+    <link>http://aknowledge.xyz/</link>
+    <description>Recent content on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Sep 2020 00:19:02 -0700</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Baldur&#39;s Gate II: Shadows of Algebra</title>
+      <link>http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/</link>
+      <pubDate>Sat, 12 Sep 2020 00:19:02 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/</guid>
+      <description>I used to play my fair share of cRPGs when I was younger, and the Infinity Engine-powered Dungeons &amp;amp; Dragons ones were certainly some of my favorites. I loved going back to the giant tree/town of Kuldahar in Icewind Dale as warm respite from wintery spelunking and slaying of undead hordes, and if you ever ask me about my all-time top video games Planescape: Torment is sure to come up on the short-shortlist.</description>
+    </item>
+    
+    <item>
+      <title>Early career advice for myself, from myself (T&#43;6 years)</title>
+      <link>http://aknowledge.xyz/blog/advice/</link>
+      <pubDate>Mon, 04 Feb 2019 22:56:08 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/advice/</guid>
+      <description>There&amp;rsquo;s no way to get around making lots of mistakes in life and I am certainly no exception to that. While not quite a graduation speech, I am still going to attempt to recycle said mistakes for more than they&amp;rsquo;re worth and provide some advice to my younger self. Maybe you&amp;rsquo;ll just learn something useful too! Or better yet, you can leave a comment and give me some more advice I&amp;rsquo;m missing.</description>
+    </item>
+    
+    <item>
+      <title>Quantifiably sleeping better with Android</title>
+      <link>http://aknowledge.xyz/blog/sleep_tracking/</link>
+      <pubDate>Mon, 20 Aug 2018 11:06:12 -0400</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/sleep_tracking/</guid>
+      <description>The most harrowing months of my work career were no doubt in the first half of 2018 in the run up to the legally required implementation date of the General Data Protection Regulation (GDPR) in the European Union. The product requirements changed if you sneezed at the wrong time, there was no room for error, and the launch date was immovable. There was a lot of work to do with too little time in which to accomplish it and many of our product testers were located in India, meaning that one of us frequently needed to be available at odd hours to help unblock them.</description>
+    </item>
+    
+    <item>
+      <title>A Little Bit Different</title>
+      <link>http://aknowledge.xyz/blog/a_bit_different/</link>
+      <pubDate>Sat, 14 Jul 2018 11:06:12 -0400</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/a_bit_different/</guid>
+      <description>General life strategy One undercurrent to all the following&amp;hellip;let&amp;rsquo;s call them alternative elements of my life is that I do my research in so many aspects of my life. For some activities this can be detrimental: I had to fight back my urge to spend several minutes looking up restaurant reviews when the correct course of action was to wander NYC&amp;rsquo;s K-Town and pick any of the amazing restaurants. For so much of the rest of my life though I will spend a nearly limitless amount of time digging into what the best kind of oil is to use to reseason my cast iron pans (flaxseed, but make sure it&amp;rsquo;s 100% pure), what static-site generator I should use to build my blog (hugo), or what the current best pair of IEMs can be bought with ~$40-80 (which changes at no more slowly than every 6 months).</description>
+    </item>
+    
+    <item>
+      <title>Eternal Terminal, tmux, iTerm2, and you</title>
+      <link>http://aknowledge.xyz/blog/et/</link>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/et/</guid>
+      <description>Prelude: tmux For the rest of this post to make sense, you ought to have some understanding of tmux. tmux is a terminal multiplexer and session manager, meaning that if you disconnect from your machine you can reattach to your previous session and the state of your terminal tabs (managed within tmux) will be restored as if you had never left. It is a highly recommended tool for remote development. It is often considered a successor to screen.</description>
+    </item>
+    
+    <item>
+      <title>Building a blog with Hugo</title>
+      <link>http://aknowledge.xyz/blog/hugo/</link>
+      <pubDate>Wed, 19 Oct 2016 14:03:39 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/hugo/</guid>
+      <description>Not to get too meta, I thought it would be appropriate to discuss my experience with Hugo in bringing up this blog. I generally followed the excellent quickstart documentation (which can also be very conveniently hosted locally).
+Overall, I like the tool but as can be expected it has some interesting features which I thought were worth pointing out.
+Shopping Around I did not do a tremendous amount of shopping around but I started with a few basic goals.</description>
+    </item>
+    
+    <item>
+      <title>The Lazy Person&#39;s Guide to Useful Everyday Software</title>
+      <link>http://aknowledge.xyz/blog/everyday-productivity-tools/</link>
+      <pubDate>Sun, 16 Oct 2016 22:38:05 -0400</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/everyday-productivity-tools/</guid>
+      <description>Several people have posited that the best coders are lazy, citing that they will write DRY (Don&amp;rsquo;t Repeat Yourself) code to make maintenance and testing easier and that they will use the right tools to solve their problems with the least amount of required effort. Well, the same principle applies when it comes to general productivity when it comes to working with computers, whether you&amp;rsquo;re a software developer, an Excel spelunker, or a human Markov chain email generator.</description>
+    </item>
+    
+    <item>
+      <title>Giddyup: First Look at Pony Lang</title>
+      <link>http://aknowledge.xyz/blog/pony-impressions/</link>
+      <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/pony-impressions/</guid>
+      <description>A friend of mine jokingly brought up the Pony language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended BABSCon, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard bronies? Is this a legitimate language or just horsing around?</description>
+    </item>
+    
+    <item>
+      <title>Password Management for the [Somewhat] Common Man</title>
+      <link>http://aknowledge.xyz/blog/keepass/</link>
+      <pubDate>Mon, 04 Apr 2016 16:07:17 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/keepass/</guid>
+      <description>123456, password, qwerty In the offchance you&amp;rsquo;ve been living under a rock lacking internet access for the past several years, passwords and account information are leaked on a frighteningly regular basis. Amazon forced some portion of its customers to reset their passwords around Black Friday 2015. Over 30 million Ashley Madison accounts&amp;rsquo; details were leaked last summer including a plethora of personal details in addition to passwords. Back in 2013, more than 130 million Adobe user names, emails, encrypted (but unsalted) passwords, and clear-text password hints (do not ever use real password hints) were loosed upon the internet.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://aknowledge.xyz/about/</link>
+      <pubDate>Fri, 25 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/about/</guid>
+      <description>Aaron was born and raised in the birthplace of grunge, Seattle, Washington. He earned both his B.A. in Computer Science and B.M. in Classical Performance (Bass) from Oberlin College &amp;amp; Conservatory before moving to the San Francisco bay to pursue a career in technology.
+He has a passion for tools and efficiency, helping himself and others to emphasize brain-work over grunt-work. You can find him at a prodigous amount of concerts and shows throughout the bay.</description>
+    </item>
+    
+  </channel>
+</rss>

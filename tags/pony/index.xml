@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pony on AKnowledge</title>
+    <link>http://aknowledge.xyz/tags/pony/</link>
+    <description>Recent content in pony on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/tags/pony/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Giddyup: First Look at Pony Lang</title>
+      <link>http://aknowledge.xyz/blog/pony-impressions/</link>
+      <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/pony-impressions/</guid>
+      <description>A friend of mine jokingly brought up the Pony language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended BABSCon, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard bronies? Is this a legitimate language or just horsing around?</description>
+    </item>
+    
+  </channel>
+</rss>

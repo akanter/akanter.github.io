@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fun on AKnowledge</title>
+    <link>http://aknowledge.xyz/categories/fun/</link>
+    <description>Recent content in fun on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Sep 2020 00:19:02 -0700</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/categories/fun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Baldur&#39;s Gate II: Shadows of Algebra</title>
+      <link>http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/</link>
+      <pubDate>Sat, 12 Sep 2020 00:19:02 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/</guid>
+      <description>I used to play my fair share of cRPGs when I was younger, and the Infinity Engine-powered Dungeons &amp;amp; Dragons ones were certainly some of my favorites. I loved going back to the giant tree/town of Kuldahar in Icewind Dale as warm respite from wintery spelunking and slaying of undead hordes, and if you ever ask me about my all-time top video games Planescape: Torment is sure to come up on the short-shortlist.</description>
+    </item>
+    
+  </channel>
+</rss>

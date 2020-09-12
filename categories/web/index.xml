@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on AKnowledge</title>
+    <link>http://aknowledge.xyz/categories/web/</link>
+    <description>Recent content in web on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Oct 2016 14:03:39 -0700</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Building a blog with Hugo</title>
+      <link>http://aknowledge.xyz/blog/hugo/</link>
+      <pubDate>Wed, 19 Oct 2016 14:03:39 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/hugo/</guid>
+      <description>Not to get too meta, I thought it would be appropriate to discuss my experience with Hugo in bringing up this blog. I generally followed the excellent quickstart documentation (which can also be very conveniently hosted locally).
+Overall, I like the tool but as can be expected it has some interesting features which I thought were worth pointing out.
+Shopping Around I did not do a tremendous amount of shopping around but I started with a few basic goals.</description>
+    </item>
+    
+  </channel>
+</rss>

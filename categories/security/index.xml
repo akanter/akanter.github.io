@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on AKnowledge</title>
+    <link>http://aknowledge.xyz/categories/security/</link>
+    <description>Recent content in security on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Apr 2016 16:07:17 -0700</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Password Management for the [Somewhat] Common Man</title>
+      <link>http://aknowledge.xyz/blog/keepass/</link>
+      <pubDate>Mon, 04 Apr 2016 16:07:17 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/keepass/</guid>
+      <description>123456, password, qwerty In the offchance you&amp;rsquo;ve been living under a rock lacking internet access for the past several years, passwords and account information are leaked on a frighteningly regular basis. Amazon forced some portion of its customers to reset their passwords around Black Friday 2015. Over 30 million Ashley Madison accounts&amp;rsquo; details were leaked last summer including a plethora of personal details in addition to passwords. Back in 2013, more than 130 million Adobe user names, emails, encrypted (but unsalted) passwords, and clear-text password hints (do not ever use real password hints) were loosed upon the internet.</description>
+    </item>
+    
+  </channel>
+</rss>

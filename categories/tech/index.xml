@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech on AKnowledge</title>
+    <link>http://aknowledge.xyz/categories/tech/</link>
+    <description>Recent content in tech on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eternal Terminal, tmux, iTerm2, and you</title>
+      <link>http://aknowledge.xyz/blog/et/</link>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/et/</guid>
+      <description>Prelude: tmux For the rest of this post to make sense, you ought to have some understanding of tmux. tmux is a terminal multiplexer and session manager, meaning that if you disconnect from your machine you can reattach to your previous session and the state of your terminal tabs (managed within tmux) will be restored as if you had never left. It is a highly recommended tool for remote development. It is often considered a successor to screen.</description>
+    </item>
+    
+    <item>
+      <title>Building a blog with Hugo</title>
+      <link>http://aknowledge.xyz/blog/hugo/</link>
+      <pubDate>Wed, 19 Oct 2016 14:03:39 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/hugo/</guid>
+      <description>Not to get too meta, I thought it would be appropriate to discuss my experience with Hugo in bringing up this blog. I generally followed the excellent quickstart documentation (which can also be very conveniently hosted locally).
+Overall, I like the tool but as can be expected it has some interesting features which I thought were worth pointing out.
+Shopping Around I did not do a tremendous amount of shopping around but I started with a few basic goals.</description>
+    </item>
+    
+    <item>
+      <title>The Lazy Person&#39;s Guide to Useful Everyday Software</title>
+      <link>http://aknowledge.xyz/blog/everyday-productivity-tools/</link>
+      <pubDate>Sun, 16 Oct 2016 22:38:05 -0400</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/everyday-productivity-tools/</guid>
+      <description>Several people have posited that the best coders are lazy, citing that they will write DRY (Don&amp;rsquo;t Repeat Yourself) code to make maintenance and testing easier and that they will use the right tools to solve their problems with the least amount of required effort. Well, the same principle applies when it comes to general productivity when it comes to working with computers, whether you&amp;rsquo;re a software developer, an Excel spelunker, or a human Markov chain email generator.</description>
+    </item>
+    
+    <item>
+      <title>Giddyup: First Look at Pony Lang</title>
+      <link>http://aknowledge.xyz/blog/pony-impressions/</link>
+      <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/pony-impressions/</guid>
+      <description>A friend of mine jokingly brought up the Pony language in the context that he&amp;rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended BABSCon, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard bronies? Is this a legitimate language or just horsing around?</description>
+    </item>
+    
+    <item>
+      <title>Password Management for the [Somewhat] Common Man</title>
+      <link>http://aknowledge.xyz/blog/keepass/</link>
+      <pubDate>Mon, 04 Apr 2016 16:07:17 -0700</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/keepass/</guid>
+      <description>123456, password, qwerty In the offchance you&amp;rsquo;ve been living under a rock lacking internet access for the past several years, passwords and account information are leaked on a frighteningly regular basis. Amazon forced some portion of its customers to reset their passwords around Black Friday 2015. Over 30 million Ashley Madison accounts&amp;rsquo; details were leaked last summer including a plethora of personal details in addition to passwords. Back in 2013, more than 130 million Adobe user names, emails, encrypted (but unsalted) passwords, and clear-text password hints (do not ever use real password hints) were loosed upon the internet.</description>
+    </item>
+    
+  </channel>
+</rss>

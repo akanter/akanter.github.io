@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>development on AKnowledge</title>
+    <link>http://aknowledge.xyz/tags/development/</link>
+    <description>Recent content in development on AKnowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://aknowledge.xyz/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eternal Terminal, tmux, iTerm2, and you</title>
+      <link>http://aknowledge.xyz/blog/et/</link>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://aknowledge.xyz/blog/et/</guid>
+      <description>Prelude: tmux For the rest of this post to make sense, you ought to have some understanding of tmux. tmux is a terminal multiplexer and session manager, meaning that if you disconnect from your machine you can reattach to your previous session and the state of your terminal tabs (managed within tmux) will be restored as if you had never left. It is a highly recommended tool for remote development. It is often considered a successor to screen.</description>
+    </item>
+    
+  </channel>
+</rss>

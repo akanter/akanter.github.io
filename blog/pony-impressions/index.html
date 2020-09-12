@@ -1,0 +1,830 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Giddyup: First Look at Pony Lang</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.74.3" />
+        
+
+
+        
+            <meta name="author" content="Aaron Kanter">
+        
+        
+            <meta name="description" content="Initial impressions of the Pony language">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Giddyup: First Look at Pony Lang"/>
+<meta name="twitter:description" content="Initial impressions of the Pony language"/>
+
+        <meta property="og:title" content="Giddyup: First Look at Pony Lang" />
+<meta property="og:description" content="Initial impressions of the Pony language" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://aknowledge.xyz/blog/pony-impressions/" />
+<meta property="article:published_time" content="2016-05-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-05-18T00:00:00+00:00" />
+
+        <meta itemprop="name" content="Giddyup: First Look at Pony Lang">
+<meta itemprop="description" content="Initial impressions of the Pony language">
+<meta itemprop="datePublished" content="2016-05-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-05-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1419">
+
+
+
+<meta itemprop="keywords" content="pony,language," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-78082886-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/">AKnowledge</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/blog">
+                        
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories">
+                        Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about">
+                        About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://aknowledge.xyz/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://aknowledge.xyz/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/blog">
+                            <h3>
+                                
+                                    <i class="fa fa-newspaper-o">&nbsp;</i>
+                                
+                                Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            <h3>
+                                
+                                About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/"><p>Baldur&#39;s Gate II: Shadows of Algebra</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://aknowledge.xyz/blog/advice/"><p>Early career advice for myself, from myself (T&#43;6 years)</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&text=Giddyup%3a%20First%20Look%20at%20Pony%20Lang&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Aaron%20Kanter&body=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://aknowledge.xyz/blog/pony-impressions/">Giddyup: First Look at Pony Lang</a></h1>
+            
+        
+        
+            <p>Initial impressions of the Pony language</p>
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-05-18'>
+            May 18, 2016</time>
+        <span class="author">Aaron Kanter</span>
+        
+            <p>7 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&text=Giddyup%3a%20First%20Look%20at%20Pony%20Lang&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f&title=Giddyup%3a%20First%20Look%20at%20Pony%20Lang" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Aaron%20Kanter&body=http%3a%2f%2faknowledge.xyz%2fblog%2fpony-impressions%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+
+    <div id="content">
+        <p>A friend of mine jokingly brought up the <a href="http://www.ponylang.org/">Pony</a> language in the context that he&rsquo;s resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended <a href="http://www.babscon.com/">BABSCon</a>, had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard <a href="http://www.urbandictionary.com/define.php?term=Brony">bronies</a>? Is this a legitimate language or just horsing around? As it turns out, this is a <strong>well thought out</strong> language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I&rsquo;m going to take the rest of the post to give my $0.02 based on what I&rsquo;ve read so far (the <a href="http://http://tutorial.ponylang.org/">Pony tutorial</a> followed by a couple of <a href="https://bluishcoder.co.nz/2015/11/04/a-quick-look-at-pony.html">blog</a> <a href="https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html">posts</a> by Bluish Coder/Chris Double) and what I&rsquo;ve tinkered with.</p>
+<h3 id="overview">Overview</h3>
+<p>What do I mean by a &ldquo;well thought out language&rdquo;? <a href="http://www.ponylang.org/">PonyLang</a>, from its inception, was designed to emphasize (in order of importance)</p>
+<ul>
+<li><strong>correctness</strong></li>
+<li>performance</li>
+<li><strong>simplicity</strong></li>
+<li>consistency</li>
+<li>completeness</li>
+</ul>
+<p>Almost everything that I&rsquo;ve read so far about Pony has pointed back to these principles (together called the &ldquo;get-stuff-done&rdquo; approach) and used this ordering to determine how to proceed on an issue. How should race conditions be handled? Well, a race condition is a form of &ldquo;incorrectness&rdquo; so eliminating them entirely became part of the plan. Ahead of time compilation? That should help with correctness and performance at the expense portability and scripting capabilities among others (neither of which you&rsquo;ll note are on the list).</p>
+<p>What else can be said about the language? It&rsquo;s object-oriented, <a href="https://en.wikipedia.org/wiki/Actor_model">actor-model</a> (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few <a href="https://github.com/ponylang/ponylang.github.io/tree/master/papers/">academic papers</a> written about it, with more coming I&rsquo;d imagine.</p>
+<figure class="align-center">
+    <img src="/img/posts/ponylang_mascot.jpeg"
+         alt="The brand new (May 13, 2016) mascot. His name is Main."/> <figcaption>
+            <p>The brand new (May 13, 2016) mascot. His name is Main.
+                    <a href="https://twitter.com/SeanTAllen/status/731129619143925760">@ponylang</a></p>
+        </figcaption>
+</figure>
+
+<h3 id="pony-is-a-natural-stupidity-repellant">Pony is a natural stupidity repellant</h3>
+<p>You&rsquo;ll notice I emphasized &ldquo;correctness&rdquo; and &ldquo;simplicity&rdquo;. I did this because of all of these guiding principles, these two are clearly the conceptual parents of another less specified, but wonderfully pervasive, doctrine: &ldquo;save developers from shooting themselves in the foot&rdquo;. I&rsquo;ll call any characteristics born of this concept &ldquo;DevSafe&rdquo;.</p>
+<h4 id="no-null">No Null</h4>
+<p>Yeah, they got rid of Tony Hoare&rsquo;s famed <a href="https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/">billion dollar mistake</a> called &ldquo;null&rdquo;. Don&rsquo;t worry, there is still the primitive type <code>None</code>, but you&rsquo;ll never see it when you&rsquo;re not expecting it.</p>
+<pre><code>var x: String // x will only ever be a String. If there is a part of the code that could potentially assign x to be None, the compiler will spit out an error
+
+var y: (String | None) // y can be a String OR None
+</code></pre><p>DevSafe!</p>
+<h4 id="no-global-variables">No global variables</h4>
+<p>Remember that <a href="http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code">fatal acceleration bug</a> Toyota had a couple of years ago? Well apparently they had 10,000 global variables meaning potentially 10,000 different ways for any part of the code to manipulate the rest of the system referencing those variables. Yuck.</p>
+<p>DevSafe!</p>
+<h4 id="no-variable-shadowing">No variable shadowing</h4>
+<p>If you want to reuse a variable name, just stick a <code>'</code> (prime, from mathematics) on it. I can&rsquo;t tell you how many times I&rsquo;ve been bitten by this in one way or another&hellip;Javascript would suck at least 5% less if this were true.</p>
+<p>DevSafe!</p>
+<h4 id="forced-parens-for-operator-precedence">Forced parens for operator precedence</h4>
+<p>I know people who have issues with this with simple arithmetic (c&rsquo;mon guys, <strong>p</strong>lease <strong>e</strong>xcuse <strong>m</strong>y <strong>d</strong>ear <strong>A</strong>unt <strong>S</strong>ally), so the idea of people remembering operator precedence for more than <em>40</em> in Java is patently absurd. If you mix your operators in an expression, the compiler will complain if you don&rsquo;t use parens.</p>
+<pre><code>var x = 1 + 2 + 3 // OK!
+var y = 1 * 2 + 3 // NOPE! Compiler error.
+var z = (1 * 2) + 3 // That'll work.
+</code></pre><p>DevSafe!</p>
+<h4 id="forced-semicolons-for-same-line-expressions">Forced semicolons for same-line expressions</h4>
+<p>Similar to the point above, the compiler obviously knows when statements have ended just as it knows the internal operator precedences. The problem is that developers are easily confused.</p>
+<pre><code>var x = 1 let y = 2 // NOPE!
+var x = 1; let y = 2 //OK!
+</code></pre><p>DevSafe!</p>
+<h4 id="all-exceptions-must-by-handled---far-fewer-crashes">All exceptions must by handled -&gt; far fewer crashes</h4>
+<p>The compiler checks that all exceptions are handled. That means if you have something built and running you know it won&rsquo;t ever throw a weird runtime exception and fall over. Obviously, you can still get yourself into problems (e.g., endless loops may not crash but they can still be bad, memory leaks can still exist). Also it&rsquo;s worth noting that if you call C code, you lose this guarantee (among many others).</p>
+<p>DevSafe!</p>
+<h3 id="other-interesting-bits">Other interesting bits</h3>
+<h4 id="capabilities">Capabilities</h4>
+<p><a href="http://tutorial.ponylang.org/capabilities/index.html">Capability calculus</a> is really, really sweet. It is unlike anything I&rsquo;ve ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, <strong>this is all checked at compile time</strong>, so you&rsquo;ll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It&rsquo;s fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I&rsquo;m looking at you) 2) the compiler-time checking creates short feedback loops to help you learn the system and ensures you&rsquo;re using them properly.</p>
+<h4 id="runtime-type-information">Runtime Type Information</h4>
+<p>In many languages, runtime type information can be expensive or impossible to retrieve (e.g., Java has type erasure) and so it is generally avoided whenever possible. Not so in Pony! Type information is available at runtime and doing such a comparison at runtime is &ldquo;generally just a pointer comparison&rdquo; (their words, not mine - I haven&rsquo;t tested it to look at the LLVM code). This means you can actually have <code>match</code> statements (called <code>switch</code> in many other languages) based on the type of the variable.</p>
+<pre><code>fun interestingFunction(unionVar: (U32 | CustomType | None)): String =&gt;
+  match unionVar
+  | None =&gt; &quot;none&quot;
+  | let ct : CustomType =&gt; &quot;CustomType&quot;
+  | let u : U32 =&gt; &quot;u32&quot;
+  end
+</code></pre><p>It&rsquo;s interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether <code>x is None</code>). I&rsquo;m guessing this will change in a future release, but as of right now it&rsquo;s sitting in the <a href="https://github.com/ponylang/ponyc/issues/87">issue backlog</a>.</p>
+<ul>
+<li>Everything in the language is an expression. The result of an <code>if</code> (and most control structures for that matter) block is the last expression within the block or <code>None</code> if it doesn&rsquo;t execute. The result of a <code>break</code> is <code>None</code> unless it is followed by an expression. You get the idea.</li>
+</ul>
+<h4 id="destructo-read">Destructo-Read</h4>
+<p>Pony has destructive reads. This means that you can move variables around without needing a &ldquo;3rd hand&rdquo; like you normally would in most other languages.</p>
+<pre><code>var x : (String | U32) = &quot;foo&quot;
+var y : (String | U32) = 1337
+y = x = &quot;bar&quot;
+y // &quot;foo&quot;
+x // &quot;bar&quot;
+</code></pre><p>This works because the value of the expression <code>x = &quot;bar&quot;</code> is <code>x</code>'s previous value, which we know to be <code>&quot;foo&quot;</code>. Taking it one step further</p>
+<pre><code>x = y = x
+x // &quot;foo&quot;
+y // &quot;bar&quot;
+</code></pre><p>Neat! It also seems like it won&rsquo;t even negatively affect readability too much since only the right-most assignment can have real logic in it. Though, if people get too trigger-happy assigning variables mid-expression it may cause some comprehension problems.</p>
+<pre><code>var x : &quot;bazz&quot;
+if (x = &quot;foo&quot;) == &quot;bazz&quot; then
+  env.out.print(&quot;that's not how Java works'&quot;) // Yep, that prints.
+end
+</code></pre><h3 id="the-whole-002">The whole $0.02</h3>
+<p>Pony looks to be a serious contender to help &ldquo;solve&rdquo; concurrent programming. I probably would not recommend it to a beginning programmer right now since the tutorial and other resources are not super robust, but given the developer-friendly features and the very enthusiastic (though rather small) community I think it is absolutely worthwhile for more experienced developers to experiment with.</p>
+<h3 id="further-information">Further information</h3>
+<ul>
+<li>Web: <a href="https://www.ponylang.org/">https://www.ponylang.org/</a></li>
+<li>IRC: #ponylang @ irc.freenode.org</li>
+<li>Groups: <a href="https://pony.groups.io/g/pony">https://pony.groups.io/g/pony</a></li>
+<li>GitHub: <a href="https://github.com/ponylang">https://github.com/ponylang</a></li>
+</ul>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Category
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categoriestech'>tech</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="http://aknowledge.xyz/blog/keepass/"
+                class="button big previous">Password Management for the [Somewhat] Common Man</a></li>
+    
+
+    
+        <li><a href="http://aknowledge.xyz/blog/everyday-productivity-tools/"
+                class="button big next">The Lazy Person&#39;s Guide to Useful Everyday Software</a></li>
+    
+</ul>
+
+
+
+
+
+
+    
+    <div id="isso_thread_div">
+    <script
+         data-isso=//comments.aknowledge.xyz/ 
+        src=//comments.aknowledge.xyz/js/embed.min.js
+        data-isso-require-email=true >
+    </script>
+    <section id="isso-thread"></section>
+    <noscript>Please enable JavaScript to view the <a href="http://posativ.org/isso/">comments powered by Isso.</a></noscript>
+    </div>
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+                
+                    <a href="/" class="logo"><img src="/img/main/logo.jpg" alt="AK" /></a>
+                
+            
+            
+                <header>
+                    <h2>AKnowledge</h2>
+                    <p>A dumping ground for all things technology, travel, music, and more.</p>
+                </header>
+            
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/akanter" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/aaron-kanter-a5b04837" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//plus.google.com/+alkanter" target="_blank" title="Google+" class="fa fa-google-plus"></a></li>
+
+
+
+<li><a href="//facebook.com/akanter" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://aknowledge.xyz/blog/baldurs-gate-ii-algebra/">Baldur&#39;s Gate II: Shadows of Algebra</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2020-09-12'>
+                                    September 12, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://aknowledge.xyz/blog/advice/">Early career advice for myself, from myself (T&#43;6 years)</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2019-02-04'>
+                                    February 4, 2019</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                /blog/
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/tech/">tech</a>
+                                <span style="float:right;">5</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/productivity/">productivity</a>
+                                <span style="float:right;">2</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/fun/">fun</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/gaming/">gaming</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/security/">security</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/web/">web</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+        <section class="blurb">
+            <h2>About</h2>
+            <p>Aaron Kanter is a generalist developer, musician, and traveler based out of San Francisco</p>
+
+            <ul class="actions">
+                <li><a href="/about/" class="button">Learn More</a></li>
+            </ul>
+        </section>
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/akanter" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/aaron-kanter-a5b04837" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//plus.google.com/+alkanter" target="_blank" title="Google+" class="fa fa-google-plus"></a></li>
+
+
+
+<li><a href="//facebook.com/akanter" target="_blank" title="Facebook" class="fa fa-facebook"></a></li>
+
+
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; AKnowledge. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+
